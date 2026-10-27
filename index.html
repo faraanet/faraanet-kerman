@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#172A46">
+<meta name="description" content="صفحه ارتباطی نت‌سرای فَرا نِت؛ تماس، تلگرام، روبیکا و مسیریابی به مغازه در کرمان.">
+<title>نت‌سرای فَرا نِت | راه‌های ارتباطی</title>
+
+<style>
+:root {
+  --navy: #172A46;
+  --gray: #E5E1D9;
+  --paper: #F7F5F0;
+  --line: #B9B4AB;
+}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--gray);
+  color: var(--navy);
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.9;
+}
+a { color: inherit; }
+
+.container {
+  width: min(100% - 24px, 1000px);
+  margin: auto;
+  padding: 18px 0 24px;
+}
+
+header {
+  background: var(--navy);
+  color: var(--gray);
+  text-align: center;
+  padding: 28px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.wifi {
+  font-size: 54px;
+  line-height: 1.2;
+}
+.brand-small {
+  font-size: 20px;
+  margin: 0;
+}
+h1 {
+  font-size: clamp(36px, 7vw, 62px);
+  line-height: 1.5;
+  margin: 0;
+  letter-spacing: -1px;
+}
+.subtitle {
+  margin: 0;
+  font-size: 17px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.panel {
+  border: 2px solid var(--navy);
+  border-radius: 18px;
+  overflow: hidden;
+  min-width: 0;
+}
+.panel-title {
+  margin: 0;
+  padding: 12px;
+  background: var(--navy);
+  color: var(--gray);
+  font-size: 21px;
+  text-align: center;
+}
+.panel-content {
+  padding: 8px 14px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+}
+.item:last-child { border-bottom: 0; }
+.item:hover { background: rgba(23,42,70,.05); }
+.item:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: -3px;
+}
+.iconbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 13px;
+  background: var(--navy);
+  color: var(--gray);
+  font-size: 24px;
+  font-weight: bold;
+}
+.details {
+  flex: 1;
+  min-width: 0;
+}
+.details strong {
+  display: block;
+  font-size: 16px;
+}
+.details small {
+  display: block;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+.arrow {
+  font-size: 25px;
+  flex-shrink: 0;
+  padding: 0 2px;
+}
+.instruction {
+  text-align: center;
+  padding: 10px 12px 14px;
+  font-size: 14px;
+}
+.qr-panel {
+  background: var(--navy);
+  color: var(--gray);
+  text-align: center;
+  padding: 22px 16px;
+  border-radius: 18px;
+  margin-top: 20px;
+}
+.qr-panel h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+.qr-panel img {
+  display: block;
+  width: 190px;
+  height: 190px;
+  max-width: 100%;
+  margin: auto;
+  padding: 8px;
+  background: white;
+  border-radius: 10px;
+}
+.qr-panel p {
+  margin: 12px 0 0;
+  font-size: 14px;
+}
+.address {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 18px 8px 4px;
+  font-size: 14px;
+}
+.address-icon {
+  font-size: 25px;
+  flex-shrink: 0;
+}
+footer {
+  text-align: center;
+  padding: 14px 8px;
+  font-weight: bold;
+}
+footer span {
+  display: inline-block;
+  padding: 0 12px;
+}
+
+@media (max-width: 680px) {
+  .container {
+    width: min(100% - 18px, 520px);
+    padding-top: 9px;
+  }
+  header {
+    padding: 22px 10px;
+    border-radius: 15px;
+  }
+  .wifi { font-size: 44px; }
+  .subtitle { font-size: 14px; }
+  .columns { grid-template-columns: 1fr; gap: 16px; }
+  .panel-title { font-size: 19px; }
+  .panel-content { padding: 7px 12px; }
+  .item { padding: 12px 0; }
+  .iconbox { width: 48px; height: 48px; }
+  .details strong { font-size: 15px; }
+  .details small { font-size: 12px; }
+  .qr-panel { margin-top: 16px; }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+<header>
+  <div class="wifi" aria-hidden="true">⌁</div>
+  <p class="brand-small">نت‌سرای</p>
+  <h1>فَرا نِت</h1>
+  <p class="subtitle">ارائه کلیه خدمات اینترنتی</p>
+</header>
+
+<div class="columns">
+
+<section class="panel">
+  <h2 class="panel-title">☎ راه‌های ارتباطی</h2>
+  <div class="panel-content">
+
+    <a class="item" href="tel:09385436756">
+      <span class="iconbox">☎</span>
+      <span class="details">
+        <strong>تماس تلفنی</strong>
+        <small dir="ltr">09385436756</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+    <a class="item"
+       href="https://t.me/faraanet_kerman"
+       target="_blank" rel="noopener noreferrer">
+      <span class="iconbox">➤</span>
+      <span class="details">
+        <strong>کانال تلگرام</strong>
+        <small dir="ltr">t.me/faraanet_kerman</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+    <a class="item"
+       href="https://t.me/faraanetkerman"
+       target="_blank" rel="noopener noreferrer">
+      <span class="iconbox">✉</span>
+      <span class="details">
+        <strong>پیام خصوصی تلگرام</strong>
+        <small dir="ltr">t.me/faraanetkerman</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+    <a class="item"
+       href="http://rubika.ir/faraanet_kerman"
+       target="_blank" rel="noopener noreferrer">
+      <span class="iconbox">ر</span>
+      <span class="details">
+        <strong>کانال روبیکا</strong>
+        <small dir="ltr">rubika.ir/faraanet_kerman</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+    <a class="item"
+       href="http://rubika.ir/FARAANETKERMAN"
+       target="_blank" rel="noopener noreferrer">
+      <span class="iconbox">✉</span>
+      <span class="details">
+        <strong>پیام خصوصی روبیکا</strong>
+        <small dir="ltr">rubika.ir/FARAANETKERMAN</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="panel">
+  <h2 class="panel-title">⌖ مسیریابی به فَرا نِت</h2>
+  <p class="instruction">مسیریاب موردنظر خود را انتخاب کنید و به‌راحتی به ما برسید.</p>
+  <div class="panel-content">
+
+    <a class="item"
+       href="https://maps.app.goo.gl/7SW7o3R4UkmaRQTw7"
+       target="_blank" rel="noopener noreferrer">
+      <span class="iconbox">⌖</span>
+      <span class="details">
+        <strong>گوگل مپ</strong>
+        <small>مسیریابی با Google Maps</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+    <a class="item"
+       href="https://nshn.ir/98_bPXglIdYOp-"
+       target="_blank" rel="noopener noreferrer">
+      <span class="iconbox">⌖</span>
+      <span class="details">
+        <strong>نشان</strong>
+        <small>مسیریابی با نشان</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+    <a class="item"
+       href="https://balad.ir/p/3g3EJzQS0RLbsQ"
+       target="_blank" rel="noopener noreferrer">
+      <span class="iconbox">➤</span>
+      <span class="details">
+        <strong>بلد</strong>
+        <small>مسیریابی با بلد</small>
+      </span>
+      <span class="arrow">‹</span>
+    </a>
+
+  </div>
+  <p class="instruction">
+    پارک مطهری، بلوار قدس، ابتدای کوچه ۱۸ (خیابان دایی‌زاده)، جنب کافه آنیل
+  </p>
+</section>
+
+</div>
+
+<section class="qr-panel">
+  <h2>QR Code فَرا نِت</h2>
+  <img id="qrCode" alt="کد QR صفحه ارتباطی فَرا نِت">
+  <p>با اسکن این کد، به صفحه ارتباطی ما دسترسی پیدا کنید.</p>
+</section>
+
+<div class="address">
+  <span class="address-icon">⌖</span>
+  <span>
+    پارک مطهری، بلوار قدس، ابتدای کوچه ۱۸ (خیابان دایی‌زاده)،
+    جنب کافه آنیل
+  </span>
+</div>
+
+<footer>
+  فَرا نِت <span>|</span> همیشه در کنار شما
+</footer>
+
+</main>
+
+<script>
+(function () {
+  const pageURL = window.location.href;
+  const qr = document.getElementById("qrCode");
+
+  // QR code points to this page's published address.
+  qr.src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=350x350&margin=8&data=" +
+    encodeURIComponent(pageURL);
+})();
+</script>
+
+</body>
+</html>
