@@ -22,7 +22,7 @@
       height: auto;
     }
 
-    /* لینک‌های نامرئی روی ردیف‌ها؛ پوستر اصلی تغییر نمی‌کند. */
+    /* ناحیه‌های لینک‌دار؛ تصویر اصلی پوستر تغییر نمی‌کند. */
     .hotspot {
       position: absolute;
       display: block;
@@ -34,26 +34,48 @@
       outline: none;
     }
 
-    /* قاب برجسته‌ای که دقیقاً روی مربع آیکون‌های ستون تماس می‌افتد. */
-    .hotspot::before {
+    /*
+      هر لینک دو افکت دارد:
+      before = قاب برجسته آیکون
+      after  = قاب برجسته نوشته لینک
+      هر دو لایه pointer-events:none دارند تا کلیک لینک مسدود نشود.
+    */
+    .hotspot::before,
+    .hotspot::after {
       content: "";
       position: absolute;
       pointer-events: none;
+      border: 1.5px solid rgba(255,255,255,.88);
+      background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(5,25,48,.13));
+      box-shadow:
+        0 3px 0 rgba(5,24,45,.48),
+        0 7px 13px rgba(0,0,0,.23),
+        inset 0 1px 2px rgba(255,255,255,.38);
+      transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        border-color .16s ease;
+    }
+
+    /* آیکون ستون تماس */
+    .hotspot::before {
       left: .2%;
       top: 5%;
       width: 16.8%;
       height: 88%;
-      border: 1.5px solid rgba(255,255,255,.88);
       border-radius: 18%;
-      background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(5,25,48,.12));
-      box-shadow:
-        0 3px 0 rgba(5,24,45,.48),
-        0 7px 13px rgba(0,0,0,.25),
-        inset 0 1px 2px rgba(255,255,255,.38);
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
     }
 
-    /* آیکون‌های مسیریابی در ابتدای کارت‌های سمت راست قرار دارند. */
+    /* نوشته‌های قابل کلیک در ردیف‌های تماس */
+    .hotspot::after {
+      left: 19%;
+      top: 8%;
+      width: 78%;
+      height: 82%;
+      border-radius: 10px;
+    }
+
+    /* آیکون‌های مسیریابی در کارت‌های سمت راست */
     .google-map::before,
     .neshan::before,
     .balad::before {
@@ -64,22 +86,35 @@
       border-radius: 17%;
     }
 
+    /* نوشته‌های قابل کلیک کارت‌های مسیریابی */
+    .google-map::after,
+    .neshan::after,
+    .balad::after {
+      left: 32%;
+      top: 19%;
+      width: 61%;
+      height: 68%;
+      border-radius: 10px;
+    }
+
     @media (hover: hover) and (pointer: fine) {
-      .hotspot:hover::before {
-        transform: translateY(-3px) scale(1.035);
+      .hotspot:hover::before,
+      .hotspot:hover::after {
+        transform: translateY(-3px) scale(1.025);
         border-color: #fff;
         box-shadow:
           0 5px 0 rgba(5,24,45,.48),
-          0 11px 17px rgba(0,0,0,.30),
+          0 11px 17px rgba(0,0,0,.29),
           inset 0 1px 3px rgba(255,255,255,.48);
       }
     }
 
-    .hotspot:active::before {
+    .hotspot:active::before,
+    .hotspot:active::after {
       transform: translateY(2px) scale(.975);
       box-shadow:
         0 1px 0 rgba(5,24,45,.48),
-        0 2px 5px rgba(0,0,0,.20),
+        0 2px 5px rgba(0,0,0,.19),
         inset 0 2px 4px rgba(0,0,0,.16);
     }
 
@@ -99,7 +134,8 @@
     .balad       { left: 56.5%; top: 48.3%; width: 40.5%; height: 7.4%; }
 
     @media (prefers-reduced-motion: reduce) {
-      .hotspot::before { transition: none; }
+      .hotspot::before,
+      .hotspot::after { transition: none; }
     }
   </style>
 </head>
