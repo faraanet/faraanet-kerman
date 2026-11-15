@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c50">
+  <meta name="description" content="کافی نت فَرا نِت؛ ارائه کلیه خدمات اینترنتی در کرمان">
+  <title>کافی نت فَرا نِت</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #f5f1e7; }
+    body { display: flex; justify-content: center; }
+    .poster {
+      position: relative;
+      width: min(100%, 1024px);
+      line-height: 0;
+      isolation: isolate;
+    }
+    .poster img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ناحیه‌های لینک‌دار؛ تصویر اصلی پوستر تغییر نمی‌کند. */
+    .hotspot {
+      position: absolute;
+      display: block;
+      z-index: 2;
+      border-radius: 12px;
+      background: transparent;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      outline: none;
+    }
+
+    /*
+      هر لینک دو افکت دارد:
+      before = قاب برجسته آیکون
+      after  = قاب برجسته نوشته لینک
+      هر دو لایه pointer-events:none دارند تا کلیک لینک مسدود نشود.
+    */
+    .hotspot::before,
+    .hotspot::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border: 1.5px solid rgba(255,255,255,.88);
+      background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(5,25,48,.13));
+      box-shadow:
+        0 3px 0 rgba(5,24,45,.48),
+        0 7px 13px rgba(0,0,0,.23),
+        inset 0 1px 2px rgba(255,255,255,.38);
+      transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        border-color .16s ease;
+    }
+
+    /* آیکون ستون تماس */
+    .hotspot::before {
+      left: .2%;
+      top: 5%;
+      width: 16.8%;
+      height: 88%;
+      border-radius: 18%;
+    }
+
+    /* نوشته‌های قابل کلیک در ردیف‌های تماس */
+    .hotspot::after {
+      left: 19%;
+      top: 8%;
+      width: 78%;
+      height: 82%;
+      border-radius: 10px;
+    }
+
+    /* آیکون‌های مسیریابی در کارت‌های سمت راست */
+    .google-map::before,
+    .neshan::before,
+    .balad::before {
+      left: 7.2%;
+      top: 17%;
+      width: 22%;
+      height: 72%;
+      border-radius: 17%;
+    }
+
+    /* نوشته‌های قابل کلیک کارت‌های مسیریابی */
+    .google-map::after,
+    .neshan::after,
+    .balad::after {
+      left: 32%;
+      top: 19%;
+      width: 61%;
+      height: 68%;
+      border-radius: 10px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .hotspot:hover::before,
+      .hotspot:hover::after {
+        transform: translateY(-3px) scale(1.025);
+        border-color: #fff;
+        box-shadow:
+          0 5px 0 rgba(5,24,45,.48),
+          0 11px 17px rgba(0,0,0,.29),
+          inset 0 1px 3px rgba(255,255,255,.48);
+      }
+    }
+
+    .hotspot:active::before,
+    .hotspot:active::after {
+      transform: translateY(2px) scale(.975);
+      box-shadow:
+        0 1px 0 rgba(5,24,45,.48),
+        0 2px 5px rgba(0,0,0,.19),
+        inset 0 2px 4px rgba(0,0,0,.16);
+    }
+
+    .hotspot:focus-visible {
+      outline: 3px solid #b9b4aa;
+      outline-offset: 3px;
+    }
+
+    /* محدوده‌های کلیک بر اساس پوستر اصلی 1024×1536 */
+    .phone       { left: 4.7%;  top: 27.0%; width: 46.0%; height: 6.0%; }
+    .tg-channel  { left: 4.7%;  top: 33.7%; width: 46.0%; height: 6.0%; }
+    .tg-private  { left: 4.7%;  top: 40.2%; width: 46.0%; height: 6.0%; }
+    .rubika      { left: 4.7%;  top: 46.2%; width: 46.0%; height: 5.6%; }
+    .rubika-pv   { left: 4.7%;  top: 52.2%; width: 46.0%; height: 5.5%; }
+    .google-map  { left: 56.5%; top: 32.4%; width: 40.5%; height: 7.4%; }
+    .neshan      { left: 56.5%; top: 40.4%; width: 40.5%; height: 7.3%; }
+    .balad       { left: 56.5%; top: 48.3%; width: 40.5%; height: 7.4%; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hotspot::before,
+      .hotspot::after { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster" aria-label="صفحه معرفی کافی نت فَرا نِت">
+    <img src="poster.jpg" alt="پوستر کافی نت فَرا نِت؛ اطلاعات تماس، مسیریابی و فهرست خدمات اینترنتی" width="1024" height="1536">
+
+    <a class="hotspot phone" href="tel:09385436756" aria-label="تماس تلفنی با کافی نت فَرا نِت"></a>
+    <a class="hotspot tg-channel" href="https://t.me/faraanet_kerman" target="_blank" rel="noopener noreferrer" aria-label="کانال تلگرام فَرا نِت"></a>
+    <a class="hotspot tg-private" href="https://t.me/faraanetkerman" target="_blank" rel="noopener noreferrer" aria-label="پیام خصوصی تلگرام فَرا نِت"></a>
+    <a class="hotspot rubika" href="https://rubika.ir/faraanet_kerman" target="_blank" rel="noopener noreferrer" aria-label="کانال روبیکا فَرا نِت"></a>
+    <a class="hotspot rubika-pv" href="https://rubika.ir/FARAANETKERMAN" target="_blank" rel="noopener noreferrer" aria-label="پیام خصوصی روبیکا فَرا نِت"></a>
+
+    <a class="hotspot google-map" href="https://maps.app.goo.gl/VjEJYo9RR5K4WfvS8" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با گوگل مپ"></a>
+    <a class="hotspot neshan" href="https://neshan.org/maps/search/%DA%A9%D8%A7%D9%81%DB%8C%20%D9%86%D8%AA%20%D9%81%D8%B1%D8%A7%20%D9%86%D8%AA%20%DA%A9%D8%B1%D9%85%D8%A7%D9%86" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با نشان"></a>
+    <a class="hotspot balad" href="https://balad.ir/p/3g3EJzQS0RLbsQ" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با بلد"></a>
+  </main>
+</body>
+</html>
