@@ -2,156 +2,378 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#102c50">
-  <meta name="description" content="کافی نت فَرا نِت؛ ارائه کلیه خدمات اینترنتی در کرمان">
-  <title>کافی نت فَرا نِت</title>
+  <meta name="description" content="کافی نت فَرا نِت؛ ارائه کلیه خدمات اینترنتی در کرمان. آدرس، ساعت کاری و راه‌های ارتباطی.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="کافی نت فَرا نِت">
+  <meta property="og:description" content="ارائه کلیه خدمات اینترنتی در کرمان؛ آدرس، ساعت کاری و راه‌های ارتباطی">
+  <meta property="og:image" content="https://faraanet.github.io/faraanet-kerman/poster.jpg">
+  <title>کافی نت فَرا نِت | خدمات اینترنتی در کرمان</title>
   <style>
+    :root {
+      --navy: #102c50;
+      --navy-deep: #0a1f3a;
+      --cream: #f5f1e7;
+      --paper: #fbf9f3;
+      --rule: #d8d1bf;
+      --ink: #14233b;
+      --muted: #55627a;
+      --open: #1f7a4d;
+      --closed: #a8412f;
+      --tap: 56px;
+    }
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: #f5f1e7; }
-    body { display: flex; justify-content: center; }
-    .poster {
-      position: relative;
-      width: min(100%, 1024px);
-      line-height: 0;
-      isolation: isolate;
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Vazirmatn, "Vazir", "IRANSans", Tahoma, "Segoe UI", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
     }
-    .poster img {
-      display: block;
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+
+    .wrap { max-width: 520px; margin: 0 auto; padding: 12px 14px 32px; }
+
+    /* ---------- سربرگ و وضعیت ---------- */
+    .hero {
+      background: var(--navy);
+      color: var(--cream);
+      border-radius: 22px;
+      padding: 26px 20px 22px;
+      text-align: center;
+    }
+    .hero h1 { margin: 0; font-size: 2.1rem; line-height: 1.3; font-weight: 800; }
+    .hero p { margin: 6px 0 0; font-size: 1rem; opacity: .88; }
+
+    .date { margin: 14px 0 0; font-size: 1rem; opacity: .92; }
+    .date[hidden], .occ[hidden] { display: none; }
+    .occ { margin: 2px 0 0; font-size: .95rem; color: #ffd9a8; }
+
+    .status {
+      margin-top: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--navy-deep);
+      border-radius: 14px;
+      padding: 12px 14px;
+      min-height: 52px;
+    }
+    .status[hidden] { display: none; }
+    .dot { width: 14px; height: 14px; border-radius: 50%; background: #8d98ab; flex: none; }
+    .status.is-open .dot { background: #4fd18a; box-shadow: 0 0 0 4px rgba(79,209,138,.25); }
+    .status.is-closed .dot { background: #f08a73; }
+    .status b { font-size: 1.15rem; }
+    .status span { font-size: .98rem; opacity: .9; }
+
+    /* ---------- بخش‌ها ---------- */
+    section { padding: 26px 4px 0; }
+    h2 { margin: 0 0 12px; font-size: 1.2rem; font-weight: 800; color: var(--navy); }
+
+    .actions { display: grid; gap: 10px; }
+    .btn {
+      display: flex; align-items: center; gap: 14px;
+      min-height: var(--tap);
+      padding: 8px 14px;
+      border-radius: 14px;
+      background: var(--paper);
+      border: 1.5px solid var(--navy);
+      font-weight: 600;
       width: 100%;
-      height: auto;
+      font-family: inherit; font-size: inherit; color: inherit;
+      text-align: right; cursor: pointer;
     }
+    .btn svg.ic { width: 28px; height: 28px; flex: none; color: var(--navy); }
+    .btn .txt { flex: 1; display: flex; flex-direction: column; line-height: 1.45; min-width: 0; }
+    .btn small { font-weight: 400; color: var(--muted); font-size: .85rem; }
+    .btn small.ltr { direction: ltr; text-align: right; unicode-bidi: plaintext; }
+    .btn .chev { width: 18px; height: 18px; color: var(--muted); flex: none; }
+    .btn:active { background: #ece6d6; }
 
-    /* ناحیه‌های لینک‌دار؛ تصویر اصلی پوستر تغییر نمی‌کند. */
-    .hotspot {
-      position: absolute;
-      display: block;
-      z-index: 2;
-      border-radius: 12px;
-      background: transparent;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-      outline: none;
+    .btn.primary {
+      background: var(--navy); color: var(--cream); min-height: 64px;
+      font-size: 1.1rem;
     }
+    .btn.primary svg.ic, .btn.primary .chev { color: var(--cream); }
+    .btn.primary small { color: #c9d2e2; }
+    .btn.primary:active { background: var(--navy-deep); }
 
-    /*
-      هر لینک دو افکت دارد:
-      before = قاب برجسته آیکون
-      after  = قاب برجسته نوشته لینک
-      هر دو لایه pointer-events:none دارند تا کلیک لینک مسدود نشود.
-    */
-    .hotspot::before,
-    .hotspot::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      border: 1.5px solid rgba(255,255,255,.88);
-      background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(5,25,48,.13));
-      box-shadow:
-        0 3px 0 rgba(5,24,45,.48),
-        0 7px 13px rgba(0,0,0,.23),
-        inset 0 1px 2px rgba(255,255,255,.38);
-      transition:
-        transform .16s ease,
-        box-shadow .16s ease,
-        border-color .16s ease;
+    .maps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+    .maps a {
+      display: flex; align-items: center; justify-content: center;
+      min-height: var(--tap);
+      border-radius: 14px;
+      border: 1.5px solid var(--navy);
+      background: var(--paper);
+      font-weight: 700; text-align: center; line-height: 1.3;
     }
+    .maps a:active { background: #ece6d6; }
 
-    /* آیکون ستون تماس */
-    .hotspot::before {
-      left: .2%;
-      top: 5%;
-      width: 16.8%;
-      height: 88%;
-      border-radius: 18%;
+    .addr { margin: 0 0 4px; font-size: 1.05rem; }
+    .copy {
+      margin-top: 10px; min-height: 48px; padding: 6px 16px;
+      border: 0; background: transparent; color: var(--navy);
+      font: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; cursor: pointer;
     }
+    .copy-note { min-height: 1.4em; font-size: .9rem; color: var(--open); margin: 0; }
 
-    /* نوشته‌های قابل کلیک در ردیف‌های تماس */
-    .hotspot::after {
-      left: 19%;
-      top: 8%;
-      width: 78%;
-      height: 82%;
-      border-radius: 10px;
-    }
+    /* ساعت کاری */
+    .hours { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+    .hours li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; padding: 12px 2px; border-bottom: 1px solid var(--rule); }
+    .hours li span:last-child { font-weight: 700; }
 
-    /* آیکون‌های مسیریابی در کارت‌های سمت راست */
-    .google-map::before,
-    .neshan::before,
-    .balad::before {
-      left: 7.2%;
-      top: 17%;
-      width: 22%;
-      height: 72%;
-      border-radius: 17%;
-    }
+    /* خدمات */
+    .services { list-style: none; margin: 0; padding: 0; columns: 1; }
+    .services li { padding: 9px 0; border-bottom: 1px solid var(--rule); break-inside: avoid; font-size: 1rem; }
+    @media (min-width: 440px) { .services { columns: 2; column-gap: 22px; } }
 
-    /* نوشته‌های قابل کلیک کارت‌های مسیریابی */
-    .google-map::after,
-    .neshan::after,
-    .balad::after {
-      left: 32%;
-      top: 19%;
-      width: 61%;
-      height: 68%;
-      border-radius: 10px;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .hotspot:hover::before,
-      .hotspot:hover::after {
-        transform: translateY(-3px) scale(1.025);
-        border-color: #fff;
-        box-shadow:
-          0 5px 0 rgba(5,24,45,.48),
-          0 11px 17px rgba(0,0,0,.29),
-          inset 0 1px 3px rgba(255,255,255,.48);
-      }
-    }
-
-    .hotspot:active::before,
-    .hotspot:active::after {
-      transform: translateY(2px) scale(.975);
-      box-shadow:
-        0 1px 0 rgba(5,24,45,.48),
-        0 2px 5px rgba(0,0,0,.19),
-        inset 0 2px 4px rgba(0,0,0,.16);
-    }
-
-    .hotspot:focus-visible {
-      outline: 3px solid #b9b4aa;
-      outline-offset: 3px;
-    }
-
-    /* محدوده‌های کلیک بر اساس پوستر اصلی 1024×1536 */
-    .phone       { left: 4.7%;  top: 27.0%; width: 46.0%; height: 6.0%; }
-    .tg-channel  { left: 4.7%;  top: 33.7%; width: 46.0%; height: 6.0%; }
-    .tg-private  { left: 4.7%;  top: 40.2%; width: 46.0%; height: 6.0%; }
-    .rubika      { left: 4.7%;  top: 46.2%; width: 46.0%; height: 5.6%; }
-    .rubika-pv   { left: 4.7%;  top: 52.2%; width: 46.0%; height: 5.5%; }
-    .google-map  { left: 56.5%; top: 32.4%; width: 40.5%; height: 7.4%; }
-    .neshan      { left: 56.5%; top: 40.4%; width: 40.5%; height: 7.3%; }
-    .balad       { left: 56.5%; top: 48.3%; width: 40.5%; height: 7.4%; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hotspot::before,
-      .hotspot::after { transition: none; }
-    }
+    footer { margin-top: 30px; text-align: center; color: var(--muted); font-size: .95rem; }
+    footer b { color: var(--navy); }
   </style>
 </head>
 <body>
-  <main class="poster" aria-label="صفحه معرفی کافی نت فَرا نِت">
-    <img src="poster.jpg" alt="پوستر کافی نت فَرا نِت؛ اطلاعات تماس، مسیریابی و فهرست خدمات اینترنتی" width="1024" height="1536">
+  <main class="wrap">
 
-    <a class="hotspot phone" href="tel:09385436756" aria-label="تماس تلفنی با کافی نت فَرا نِت"></a>
-    <a class="hotspot tg-channel" href="https://t.me/faraanet_kerman" target="_blank" rel="noopener noreferrer" aria-label="کانال تلگرام فَرا نِت"></a>
-    <a class="hotspot tg-private" href="https://t.me/faraanetkerman" target="_blank" rel="noopener noreferrer" aria-label="پیام خصوصی تلگرام فَرا نِت"></a>
-    <a class="hotspot rubika" href="https://rubika.ir/faraanet_kerman" target="_blank" rel="noopener noreferrer" aria-label="کانال روبیکا فَرا نِت"></a>
-    <a class="hotspot rubika-pv" href="https://rubika.ir/FARAANETKERMAN" target="_blank" rel="noopener noreferrer" aria-label="پیام خصوصی روبیکا فَرا نِت"></a>
+    <header class="hero">
+      <h1>کافی نت فَرا نِت</h1>
+      <p>ارائه کلیه خدمات اینترنتی در کرمان</p>
+      <p class="date" id="today" hidden></p>
+      <p class="occ" id="occ" hidden></p>
+      <div class="status" id="status" role="status" aria-live="polite" hidden>
+        <i class="dot" aria-hidden="true"></i>
+        <b id="status-main"></b>
+        <span id="status-sub"></span>
+      </div>
+    </header>
 
-    <a class="hotspot google-map" href="https://maps.app.goo.gl/VjEJYo9RR5K4WfvS8" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با گوگل مپ"></a>
-    <a class="hotspot neshan" href="https://neshan.org/maps/search/%DA%A9%D8%A7%D9%81%DB%8C%20%D9%86%D8%AA%20%D9%81%D8%B1%D8%A7%20%D9%86%D8%AA%20%DA%A9%D8%B1%D9%85%D8%A7%D9%86" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با نشان"></a>
-    <a class="hotspot balad" href="https://balad.ir/p/3g3EJzQS0RLbsQ" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با بلد"></a>
+    <section aria-labelledby="h-call">
+      <h2 id="h-call">تماس</h2>
+      <div class="actions">
+        <a class="btn primary" href="tel:+989385436756" aria-label="تماس با ۰۹۳۸۵۴۳۶۷۵۶">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.5 4.2-2 1.3a11 11 0 0 0 6.5 6.5l1.3-2L20 15.5V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <span class="txt">تماس تلفنی<small>۰۹۳۸۵۴۳۶۷۵۶</small></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-addr">
+      <h2 id="h-addr">آدرس</h2>
+      <p class="addr" id="addr">پارک مطهری، بلوار قدس، ابتدای کوچه ۱۸ (خیابان دایی‌زاده)، جنب کافه آنیل</p>
+      <div class="maps" role="group" aria-label="مسیریابی">
+        <a href="https://neshan.org/maps/search/%DA%A9%D8%A7%D9%81%DB%8C%20%D9%86%D8%AA%20%D9%81%D8%B1%D8%A7%20%D9%86%D8%AA%20%DA%A9%D8%B1%D9%85%D8%A7%D9%86" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با نشان">نشان</a>
+        <a href="https://balad.ir/p/3g3EJzQS0RLbsQ" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با بلد">بلد</a>
+        <a href="https://maps.app.goo.gl/VjEJYo9RR5K4WfvS8" target="_blank" rel="noopener noreferrer" aria-label="مسیریابی با گوگل مپ">گوگل مپ</a>
+      </div>
+      <button class="copy" type="button" id="copy-addr">کپی آدرس</button>
+      <p class="copy-note" id="copy-note" aria-live="polite"></p>
+    </section>
+
+    <section aria-labelledby="h-hours">
+      <h2 id="h-hours">ساعت کاری</h2>
+      <ul class="hours">
+        <li><span>شنبه تا پنجشنبه</span><span>۸ تا ۱۳ و ۱۶:۳۰ تا ۲۱</span></li>
+        <li><span>جمعه‌ها</span><span>۱۷:۳۰ تا ۲۰:۳۰</span></li>
+        <li><span>تعطیلات رسمی</span><span>تعطیل</span></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-chan">
+      <h2 id="h-chan">کانال‌ها و پیام</h2>
+      <div class="actions">
+        <a class="btn" href="https://t.me/faraanet_kerman" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4L3 11l6 2.2L11 20l3-4.5 5 3.5L21 4z"/><path d="M9 13.2L21 4"/></svg>
+          <span class="txt">عضویت در کانال تلگرام<small class="ltr">t.me/faraanet_kerman</small></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </a>
+        <a class="btn" href="https://t.me/faraanetkerman" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4L3 11l6 2.2L11 20l3-4.5 5 3.5L21 4z"/><path d="M9 13.2L21 4"/></svg>
+          <span class="txt">پیام خصوصی در تلگرام<small class="ltr">t.me/faraanetkerman</small></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </a>
+        <a class="btn" href="https://rubika.ir/faraanet_kerman" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 3v18M4 7.5l8 4.5 8-4.5"/></svg>
+          <span class="txt">عضویت در کانال روبیکا<small class="ltr">rubika.ir/faraanet_kerman</small></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </a>
+        <a class="btn" href="https://rubika.ir/FARAANETKERMAN" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 3v18M4 7.5l8 4.5 8-4.5"/></svg>
+          <span class="txt">پیام خصوصی در روبیکا<small class="ltr">rubika.ir/FARAANETKERMAN</small></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-serv">
+      <h2 id="h-serv">خدمات</h2>
+      <ul class="services">
+        <li>سامانه ثنا، ابلاغیه</li>
+        <li>سامانه سخا و تعویض پلاک</li>
+        <li>کپی و پرینت</li>
+        <li>اخذ جواز و جواز یک‌روزه مشاغل خاص</li>
+        <li>خودنویس، املاک و اسکان</li>
+        <li>امور مالیاتی و گام چهارم مالیاتی</li>
+        <li>خدمات بانکی و امتیاز حساب</li>
+        <li>بیمه وسایل نقلیه</li>
+        <li>خدمات ارگان‌های دولتی</li>
+        <li>تامین اجتماعی</li>
+        <li>مزایده و مناقصه‌های دولتی</li>
+        <li>خدمات دانش‌آموزی و دانشجویی</li>
+      </ul>
+    </section>
+
+    <footer>
+      <b>فَرا نِت</b> | همیشه در کنار شما
+    </footer>
   </main>
+
+  <script>
+    (function () {
+      var FA = '۰۱۲۳۴۵۶۷۸۹';
+      function fa(n) { return String(n).replace(/\d/g, function (d) { return FA[d]; }); }
+      function pad(n) { return ('0' + n).slice(-2); }
+      function clock(mins) {
+        var h = Math.floor(mins / 60), m = mins % 60;
+        return m ? fa(h) + ':' + fa(pad(m)) : fa(h);
+      }
+
+      /* ---------- ساعت کاری (دقیقه از نیمه‌شب) ---------- */
+      var NORMAL = [[8 * 60, 13 * 60], [16 * 60 + 30, 21 * 60]];  // شنبه تا پنجشنبه
+      var FRIDAY = [[17 * 60 + 30, 20 * 60 + 30]];                // جمعه‌ها
+
+      /* ---------- تعطیلات رسمی ----------
+         تعطیلات ثابت شمسی (نوروز، ۱۲ و ۱۳ فروردین، ۱۴ و ۱۵ خرداد، ۲۲ بهمن، ۲۹ اسفند)
+         خودکار از تقویم شمسی مرورگر محاسبه می‌شوند.
+         تعطیلات قمری هر سال تغییر می‌کنند؛ تاریخ میلادی‌شان را اینجا اضافه کنید
+         (قالب: 'سال-ماه-روز'). فهرست زیر تا پایان سال ۱۴۰۵ است. */
+      var HOLIDAYS = {
+        '2026-12-23': 'ولادت امام علی (ع) و روز پدر',
+        '2027-01-06': 'مبعث حضرت رسول اکرم (ص)',
+        '2027-01-24': 'ولادت حضرت قائم (عج) و نیمه شعبان',
+        '2027-02-11': 'پیروزی انقلاب اسلامی',
+        '2027-02-28': 'شهادت حضرت علی (ع)',
+        '2027-03-10': 'عید سعید فطر',
+        '2027-03-11': 'تعطیل به مناسبت عید فطر',
+        '2027-03-20': 'روز ملی شدن صنعت نفت ایران'
+      };
+      var SOLAR = {
+        '1-1': 'عید نوروز', '1-2': 'عید نوروز', '1-3': 'عید نوروز', '1-4': 'عید نوروز',
+        '1-12': 'روز جمهوری اسلامی', '1-13': 'روز طبیعت',
+        '3-14': 'رحلت امام خمینی (ره)', '3-15': 'قیام ۱۵ خرداد',
+        '11-22': 'پیروزی انقلاب اسلامی', '12-29': 'روز ملی شدن صنعت نفت ایران'
+      };
+
+      var NAMES = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
+
+      var persian = null, persianLong = null;
+      try {
+        var f = new Intl.DateTimeFormat('en-US-u-ca-persian-nu-latn', { timeZone: 'UTC', month: 'numeric', day: 'numeric' });
+        if (f.resolvedOptions().calendar === 'persian') {
+          persian = f;
+          persianLong = new Intl.DateTimeFormat('fa-IR-u-ca-persian', { timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        }
+      } catch (e) {}
+
+      // هر روز با یک Date در ساعت ۱۲ ظهر UTC نمایش داده می‌شود
+      function key(d) { return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()); }
+      function holidayName(d) {
+        var k = key(d);
+        if (HOLIDAYS.hasOwnProperty(k)) return HOLIDAYS[k];
+        if (!persian) return '';
+        var m = 0, day = 0;
+        persian.formatToParts(d).forEach(function (p) {
+          if (p.type === 'month') m = parseInt(p.value, 10);
+          if (p.type === 'day') day = parseInt(p.value, 10);
+        });
+        return SOLAR[m + '-' + day] || '';
+      }
+      function isHoliday(d) { return !!holidayName(d); }
+      function slotsFor(d) {
+        if (isHoliday(d)) return [];
+        return d.getUTCDay() === 5 ? FRIDAY : NORMAL;
+      }
+
+      function tehranNow() {
+        var o = {};
+        new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Tehran', year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', hour12: false
+        }).formatToParts(new Date()).forEach(function (p) { o[p.type] = parseInt(p.value, 10); });
+        return {
+          day: new Date(Date.UTC(o.year, o.month - 1, o.day, 12)),
+          mins: (o.hour % 24) * 60 + o.minute
+        };
+      }
+
+      function render() {
+        var box = document.getElementById('status');
+        try {
+          var now = tehranNow(), slots = slotsFor(now.day), t = now.mins, i, main = '', sub = '', cls = 'is-closed';
+
+          var dateEl = document.getElementById('today'), occEl = document.getElementById('occ');
+          if (persianLong) {
+            var dp = {};
+            persianLong.formatToParts(now.day).forEach(function (p) { dp[p.type] = p.value; });
+            dateEl.textContent = dp.weekday + ' ' + dp.day + ' ' + dp.month + ' ' + dp.year;
+            dateEl.hidden = false;
+          }
+          var hn = holidayName(now.day);
+          if (hn) { occEl.textContent = 'تعطیل رسمی: ' + hn; occEl.hidden = false; } else { occEl.hidden = true; }
+
+          for (i = 0; i < slots.length; i++) {
+            if (t >= slots[i][0] && t < slots[i][1]) {
+              main = 'اکنون باز است';
+              sub = 'تا ساعت ' + clock(slots[i][1]);
+              cls = 'is-open';
+              break;
+            }
+          }
+
+          if (!main) {
+            main = isHoliday(now.day) ? 'امروز تعطیل است' : 'اکنون بسته است';
+            for (i = 0; i < slots.length; i++) {
+              if (t < slots[i][0]) { sub = 'ساعت ' + clock(slots[i][0]) + ' باز می‌شود'; break; }
+            }
+            if (!sub) {
+              for (var k = 1; k <= 14; k++) {
+                var d2 = new Date(now.day.getTime() + k * 86400000), s2 = slotsFor(d2);
+                if (s2.length) {
+                  sub = (k === 1 ? 'فردا' : NAMES[d2.getUTCDay()]) + ' ساعت ' + clock(s2[0][0]) + ' باز می‌شود';
+                  break;
+                }
+              }
+            }
+          }
+
+          box.className = 'status ' + cls;
+          document.getElementById('status-main').textContent = main;
+          document.getElementById('status-sub').textContent = sub;
+          box.hidden = false;
+        } catch (e) { box.hidden = true; }
+      }
+      render();
+      setInterval(render, 60000);
+
+      // کپی آدرس
+      var btn = document.getElementById('copy-addr');
+      var note = document.getElementById('copy-note');
+      btn.addEventListener('click', function () {
+        var text = document.getElementById('addr').textContent.trim();
+        function done(ok) {
+          note.textContent = ok ? 'آدرس کپی شد' : 'کپی نشد؛ آدرس را با نگه داشتن انگشت کپی کنید';
+          setTimeout(function () { note.textContent = ''; }, 3000);
+        }
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+          } else { done(false); }
+        } catch (e) { done(false); }
+      });
+    })();
+  </script>
 </body>
 </html>
